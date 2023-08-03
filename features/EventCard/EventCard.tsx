@@ -10,6 +10,7 @@ import {
   FaMapMarkerAlt,
   FaDiceD6,
 } from "react-icons/fa";
+import { EventListElement } from "../EventListElement";
 
 type EventCardProps = {
   eventData: any;
@@ -17,8 +18,35 @@ type EventCardProps = {
 
 export const EventCard = ({ eventData }: EventCardProps) => {
   const { buttonText } = eventData;
+
+  const avatarComponent = (
+    <UserAvatar
+      imgSrc="/56ad21ebc1af7d6e12e4ded5e050de79.png"
+      userName={"my-user"}
+      width={73}
+      height={73}
+    />
+  );
+
+  const logoComponent = (
+    <Image
+      src="/ed1f6b2ec1ced8ec120d9ae430cf0532.png"
+      alt="board-game-img"
+      loading="lazy"
+      width={130}
+      height={67}
+    />
+  );
+
   return (
     <>
+      <EventListElement
+        avatar={avatarComponent}
+        logo={logoComponent}
+        title="Grańsko z Patisonem"
+        remainingTime={"2"}
+        date={"27.03"}
+      />
       <div>
         <Button text={buttonText} icon={<FaCheck size={20} />} />
       </div>
@@ -53,6 +81,13 @@ export const EventCard = ({ eventData }: EventCardProps) => {
             userName={"my-user"}
             width={73}
             height={73}
+          />
+          <Image
+            className="absolute top-3/4 -translate-y-2/4"
+            src="/8b709712cd941e4f5f4465c49d91729f.png"
+            alt="dice img"
+            width={246}
+            height={246}
           />
           <div className="w-full h-fit relative md:flex md:justify-between">
             <span className=" md:leading-tight w-[140px] h-[46px] md:w-full md:h-full left-[9px] top-[42px] md:inset-x-auto md:inset-y-auto absolute md:relative text-center md:text-left text-yellow-600 text-xl md:text-[40px] font-bold md:py-9 md:px-9 md:items-center md:flex">
@@ -137,14 +172,14 @@ export const EventCard = ({ eventData }: EventCardProps) => {
                 />
               </li>
             </ul>
-            <div className="flex flex-col gap-4 px-8">
-              <span className="text-zinc-300 text-[20px] font-bold ">
+            <div className="flex flex-col gap-4 px-8 xl:justify-between">
+              <span className="text-zinc-300 text-[20px] font-bold z-10">
                 Zapraszam wszystkich na wspólne granie w zombieside elo elo 320,
                 wszyscy mile widziani, możesz przyjść nawet jak nigdy nie
                 grałeś/aś
               </span>
               <Button
-                className="justify-self-end self-end"
+                className="justify-self-end self-end md:w-[220px] md:h-[74px]"
                 text={buttonText}
                 icon={<FaCheck size={20} />}
               />
